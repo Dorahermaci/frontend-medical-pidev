@@ -1,0 +1,62 @@
+    <h1>Medical folders</h1>
+
+
+    <div class="col-sm-12">
+      <table id="datatableexample" class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions">
+        <thead>
+          <tr>
+            <th >Title</th>
+            <th >Hospital Name</th>
+            <th >Patient</th>
+            <th >Doctor</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let folder of MedicalFolders ">
+            <td>{{folder.title}}</td>
+            <td>{{folder.hospitalName}}</td>
+            <td>{{folder.patient.firstName}} {{folder.patient.lastName}}</td>
+            <td>{{folder.doctor.firstName}} {{folder.doctor.lastName}}</td>
+            
+              <td><button style='margin-right:16px' (click)="deleteFodler(folder.id)"  class="btn btn-danger">Delete</button>
+              </td>
+          </tr>
+        </tbody>
+      </table>  
+   
+        
+      
+    </div>
+
+
+<form [formGroup]="medicalFolderForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" formControlName="title">
+    </div>
+    <div>
+      <label for="hospitalName">Hospital Name:</label>
+      <input type="text" id="hospitalName" formControlName="hospitalName">
+    </div>
+    <div>
+      <label for="patient">Patient:</label>
+      <select id="patient" formControlName="patient">
+        <option *ngFor="let patient of patients" [value]="patient.id">{{patient.firstName}} {{patient.lastName}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="doctor">Doctor:</label>
+      <select id="doctor" formControlName="doctor">
+        <option *ngFor="let doctor of doctors" [value]="doctor.id">{{doctor.firstName}} {{doctor.lastName}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="files">Files:</label>
+      <input type="file" id="files" multiple (change)="onFileSelect($event)">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  
+   
+  
