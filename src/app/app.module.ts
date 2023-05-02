@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms'; // <-- import FormsModule
 import { RouterModule, Routes } from '@angular/router';
 import { FrontOfficeComponent } from './front-office/front-office.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
@@ -17,6 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
+import { AddclaimComponent } from './front-office/addclaim/addclaim.component';
+import { MannageClaimsComponent } from './back-office/mannage-claims/mannage-claims.component';
+import { EditClaimComponent } from './back-office/edit-claim/edit-claim.component';
+import { MessageComponent } from './back-office/message/message.component';
 
 
 
@@ -28,7 +33,8 @@ const routes: Routes = [
     component: FrontOfficeComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'medical-folder', component: MedicalFolderComponent }
+      { path: 'medical-folder', component: MedicalFolderComponent },
+      { path:'Claims',component:AddclaimComponent}
 
       // Add more child routes as needed
     ]
@@ -38,7 +44,10 @@ const routes: Routes = [
     component: BackOfficeComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'medical-folder-back', component: MedicalFolderBackComponent }
+      { path: 'medical-folder-back', component: MedicalFolderBackComponent },
+      { path: 'Claims', component: MannageClaimsComponent },
+      { path: 'edit-claim/:id', component: EditClaimComponent },
+      { path: 'Messages', component: MessageComponent }
 
       // Add more child routes as needed
     ]
@@ -58,13 +67,18 @@ const routes: Routes = [
     DashboardComponent,
     SidebarComponent,
     NavbarbackComponent,
-    MedicalFolderBackComponent
+    MedicalFolderBackComponent,
+    AddclaimComponent,
+    MannageClaimsComponent,
+    EditClaimComponent,
+    MessageComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
     NgbModule,
+    FormsModule,
     ReactiveFormsModule,
     DataTablesModule
 

@@ -1,0 +1,18 @@
+<div>
+    <label>Sender ID:</label>
+    <input type="number" [(ngModel)]="senderId">
+  
+    <label>Recipient ID:</label>
+    <input type="number" [(ngModel)]="recipientId">
+  
+    <label>Message:</label>
+    <textarea [(ngModel)]="messageBody"></textarea>
+  
+    <button (click)="sendMessage()">Send Message</button>
+    <button (click)="getMessages()">Get Messages</button>
+  
+    <ul>
+      <li *ngFor="let message of messages | async">{{ message }}</li>
+    </ul>
+  </div>
+  
