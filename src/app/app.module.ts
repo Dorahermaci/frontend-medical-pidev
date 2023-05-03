@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
-
+import { AppointmentBackComponent } from './back-office/appointment-back/appointment-back.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'medical-folder', component: MedicalFolderComponent }
+      
 
       // Add more child routes as needed
     ]
@@ -38,7 +40,9 @@ const routes: Routes = [
     component: BackOfficeComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'medical-folder-back', component: MedicalFolderBackComponent }
+      { path: 'medical-folder-back', component: MedicalFolderBackComponent },
+      { path: 'appointment-back', component: AppointmentBackComponent }
+
 
       // Add more child routes as needed
     ]
@@ -58,7 +62,8 @@ const routes: Routes = [
     DashboardComponent,
     SidebarComponent,
     NavbarbackComponent,
-    MedicalFolderBackComponent
+    MedicalFolderBackComponent,
+    AppointmentBackComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -66,7 +71,8 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    DataTablesModule
+    DataTablesModule,
+    FullCalendarModule,
 
 
 
