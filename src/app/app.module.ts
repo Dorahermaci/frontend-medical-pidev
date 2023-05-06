@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
+
 import { AddclaimComponent } from './front-office/addclaim/addclaim.component';
 import { MannageClaimsComponent } from './back-office/mannage-claims/mannage-claims.component';
 import { EditClaimComponent } from './back-office/edit-claim/edit-claim.component';
@@ -29,6 +30,10 @@ import { MessageService } from 'primeng/api';
 
 
 
+import { AppointmentBackComponent } from './back-office/appointment-back/appointment-back.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
+
 
 
 
@@ -38,8 +43,13 @@ const routes: Routes = [
     component: FrontOfficeComponent,
     children: [
       { path: 'home', component: HomeComponent },
+
       { path: 'medical-folder', component: MedicalFolderComponent },
-      { path:'Claims',component:AddclaimComponent}
+      { path:'Claims',component:AddclaimComponent},
+
+      { path: 'medical-folder', component: MedicalFolderComponent }
+      
+
 
       // Add more child routes as needed
     ]
@@ -50,11 +60,16 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'medical-folder-back', component: MedicalFolderBackComponent },
+
       { path: 'Claims', component: MannageClaimsComponent },
       { path: 'edit-claim/:id', component: EditClaimComponent },
       { path: 'Messages', component: MessageComponent },
-      { path: 'dashbordClaim', component: DashboardclaimComponent }
+      { path: 'dashbordClaim', component: DashboardclaimComponent },
       
+
+      { path: 'appointment-back', component: AppointmentBackComponent }
+
+
 
       // Add more child routes as needed
     ]
@@ -75,11 +90,15 @@ const routes: Routes = [
     SidebarComponent,
     NavbarbackComponent,
     MedicalFolderBackComponent,
+
     AddclaimComponent,
     MannageClaimsComponent,
     EditClaimComponent,
     MessageComponent,
-    DashboardclaimComponent
+    DashboardclaimComponent,
+
+    AppointmentBackComponent
+
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -89,7 +108,11 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     DataTablesModule,
-    ToastModule
+
+    ToastModule,
+
+    FullCalendarModule
+
 
 
 
