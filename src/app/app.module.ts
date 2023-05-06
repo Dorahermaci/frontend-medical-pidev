@@ -22,6 +22,11 @@ import { AddclaimComponent } from './front-office/addclaim/addclaim.component';
 import { MannageClaimsComponent } from './back-office/mannage-claims/mannage-claims.component';
 import { EditClaimComponent } from './back-office/edit-claim/edit-claim.component';
 import { MessageComponent } from './back-office/message/message.component';
+import { DashboardclaimComponent } from './back-office/dashboardclaim/dashboardclaim.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
+
 
 
 
@@ -47,7 +52,9 @@ const routes: Routes = [
       { path: 'medical-folder-back', component: MedicalFolderBackComponent },
       { path: 'Claims', component: MannageClaimsComponent },
       { path: 'edit-claim/:id', component: EditClaimComponent },
-      { path: 'Messages', component: MessageComponent }
+      { path: 'Messages', component: MessageComponent },
+      { path: 'dashbordClaim', component: DashboardclaimComponent }
+      
 
       // Add more child routes as needed
     ]
@@ -71,7 +78,8 @@ const routes: Routes = [
     AddclaimComponent,
     MannageClaimsComponent,
     EditClaimComponent,
-    MessageComponent
+    MessageComponent,
+    DashboardclaimComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -80,15 +88,17 @@ const routes: Routes = [
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    DataTablesModule
+    DataTablesModule,
+    ToastModule
 
 
 
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

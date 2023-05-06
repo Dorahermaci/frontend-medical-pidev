@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -12,7 +14,7 @@ export class AddclaimComponent implements OnInit{
   currentClaim: any;
   claimForm: FormGroup;
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(private http: HttpClient, private formBuilder: FormBuilder,private router: Router) {
     this.claimForm = this.formBuilder.group({
       description: ['', Validators.required],
       date: ['', Validators.required],
@@ -34,7 +36,10 @@ export class AddclaimComponent implements OnInit{
     this.http.post(`http://localhost:8091/claims/${appUser}`, claim).subscribe((data: any) => {
       form.reset();
     });
+    this.router.navigate(['/front/home']);
   }
+
+  
   
   
   

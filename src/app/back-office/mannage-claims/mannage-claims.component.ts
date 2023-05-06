@@ -40,4 +40,7 @@ export class MannageClaimsComponent implements OnInit {
   setEditClaim(claim: any) {
     this.router.navigate(['/back/edit-claim', claim.id]);
   }
+  goToDashboard() {
+    this.router.navigate(['/back/dashbordClaim']);
+  }
 }

@@ -1,18 +1,24 @@
-<div>
-    <label>Sender ID:</label>
-    <input type="number" [(ngModel)]="senderId">
-  
-    <label>Recipient ID:</label>
-    <input type="number" [(ngModel)]="recipientId">
-  
+<div class="message-template">
+  <div class="message-header">
+    <h2>New Message</h2>
+  </div>
+  <div class="message-body">
+    <label>From:</label>
+    <input type="number" [(ngModel)]="senderId" placeholder="Enter Sender ID">
+    
+    <label>To:</label>
+    <input type="number" [(ngModel)]="recipientId" placeholder="Enter Recipient ID">
+    
     <label>Message:</label>
-    <textarea [(ngModel)]="messageBody"></textarea>
-  
-    <button (click)="sendMessage()">Send Message</button>
-    <button (click)="getMessages()">Get Messages</button>
-  
+    <textarea [(ngModel)]="messageBody" placeholder="Type your message here"></textarea>
+  </div>
+  <div class="message-footer">
+    <button class="btn btn-primary" (click)="sendMessage()">Send</button>
+    <button class="btn btn-secondary" (click)="getMessages()">View Messages</button>
+  </div>
+  <div class="message-list">
     <ul>
       <li *ngFor="let message of messages | async">{{ message }}</li>
     </ul>
   </div>
-  
+</div>

@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ClaimService } from 'src/app/services/claim.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-edit-claim',
@@ -20,7 +22,8 @@ export class EditClaimComponent implements OnInit {
     private claimService: ClaimService,
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private messageService: MessageService
   ) {
     this.claimForm = this.formBuilder.group({
       
@@ -56,12 +59,17 @@ export class EditClaimComponent implements OnInit {
       const index = this.claims.findIndex(claim => claim.id === data.id);
       this.claims[index] = data;
       this.currentClaim = null;
+      this.showToast();
       this.router.navigate(['/back/Claims']);
+
     });
   }
 
   cancel() {
     this.router.navigate(['/back/Claims']);
+  }
+  showToast() {
+    this.messageService.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content' });
   }
 
 }

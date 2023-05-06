@@ -21,9 +21,11 @@
     "@ng-bootstrap/ng-bootstrap": "^14.1.0",
     "angular-datatables": "^15.0.1",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.3.0",
     "datatables.net": "^1.13.4",
     "datatables.net-dt": "^1.13.4",
     "jquery": "^3.6.4",
+    "primeng": "^15.4.2-lts",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

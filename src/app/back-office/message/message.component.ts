@@ -24,16 +24,20 @@ export class MessageComponent implements OnInit {
   }
 
   sendMessage() {
-    const body = this.messageBody;
     const url = `http://localhost:8091/messages/${this.senderId}/${this.recipientId}`;
-  
+
+    const body = {
+      "body": this.messageBody
+    };
+
     this.http.post(url, body, {
-      headers: { 'Content-Type': 'text/plain' }
+      headers: { 'Content-Type': 'application/json' }
     })
     .subscribe(response => {
       console.log(response);
     });
   }
+
   
   
   
@@ -41,7 +45,9 @@ export class MessageComponent implements OnInit {
 
   getMessages() {
     this.messages = this.http.get<any[]>(`http://localhost:8091/messages/${this.senderId}/${this.recipientId}`);
+    this.messages.subscribe(data => console.log(data));
   }
+  
   
   
   
