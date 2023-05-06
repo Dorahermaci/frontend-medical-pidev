@@ -26,12 +26,17 @@
     "angular-calendar": "^0.31.0",
     "angular-datatables": "^15.0.1",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.3.0",
     "datatables.net": "^1.13.4",
     "datatables.net-dt": "^1.13.4",
     "date-fns": "^2.30.0",
     "jquery": "^3.6.4",
+
+    "primeng": "^15.4.2-lts",
+
     "ngx-select-dropdown": "^3.3.0",
     "ngx-select-ex": "^8.0.1",
+
     "rxjs": "~7.8.0",
     "select2": "^4.1.0-rc.0",
     "tslib": "^2.3.0",
