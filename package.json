@@ -42,14 +42,24 @@
     "angular-datatables": "^15.0.1",
     "angularx-flatpickr": "^7.3.0",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.3.0",
     "datatables.net": "^1.13.4",
     "datatables.net-dt": "^1.13.4",
     "date-fns": "^2.30.0",
     "flatpickr": "4.6.13",
     "jquery": "^3.6.4",
+
     "moment": "^2.29.4",
     "ng2-search-filter": "^0.5.1",
     "ngx-toastr": "^16.1.1",
+
+
+    "primeng": "^15.4.2-lts",
+
+    "ngx-select-dropdown": "^3.3.0",
+    "ngx-select-ex": "^8.0.1",
+
+
     "rxjs": "~7.8.0",
     "tslib": "^2.5.0",
     "zone.js": "~0.12.0"

@@ -2,6 +2,7 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms'; // <-- import FormsModule
 import { RouterModule, Routes } from '@angular/router';
 import { FrontOfficeComponent } from './front-office/front-office.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
+
 import { AddCourseComponent } from './back-office/Trainingcourse/add-course/add-course.component';
 import { ListCourseComponent } from './back-office/Trainingcourse/list-course/list-course.component';
 import { UpdateCourseComponent } from './back-office/Trainingcourse/update-course/update-course.component';
@@ -31,6 +33,22 @@ import { AccumulationChartModule } from '@syncfusion/ej2-angular-charts';
 import { StatsComponent } from './back-office/Trainingcourse/stats/stats.component';
 import { CommonModule } from '@angular/common';
 
+
+import { AddclaimComponent } from './front-office/addclaim/addclaim.component';
+import { MannageClaimsComponent } from './back-office/mannage-claims/mannage-claims.component';
+import { EditClaimComponent } from './back-office/edit-claim/edit-claim.component';
+import { MessageComponent } from './back-office/message/message.component';
+import { DashboardclaimComponent } from './back-office/dashboardclaim/dashboardclaim.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
+
+
+
+import { AppointmentBackComponent } from './back-office/appointment-back/appointment-back.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
+
 import { SchedulerModule } from 'angular-calendar-scheduler';
 
 import { UpdateRegisterComponent } from './back-office/Register/update-register/update-register.component';
@@ -41,6 +59,7 @@ import { CalendarModule, DateAdapter, MOMENT } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 const routes: Routes = [
@@ -61,9 +80,17 @@ const routes: Routes = [
     component: FrontOfficeComponent,
     children: [
       { path: 'home', component: HomeComponent },
+
+
+
       { path: 'medical-folder', component: MedicalFolderComponent },
+      { path:'Claims',component:AddclaimComponent}
+
+ 
+
       
      
+
 
       // Add more child routes as needed
     ]
@@ -74,10 +101,22 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'medical-folder-back', component: MedicalFolderBackComponent },
+
       { path: 'list-course', component: ListCourseComponent },
       { path: 'list-certificate', component: ListCertificateComponent },
       { path: 'ListeRegisterBack', component: ListRegisterComponent },
      
+
+
+      { path: 'Claims', component: MannageClaimsComponent },
+      { path: 'edit-claim/:id', component: EditClaimComponent },
+      { path: 'Messages', component: MessageComponent },
+      { path: 'dashbordClaim', component: DashboardclaimComponent },
+      
+
+      { path: 'appointment-back', component: AppointmentBackComponent }
+
+
 
       // Add more child routes as needed
     ]
@@ -100,6 +139,7 @@ const routes: Routes = [
     SidebarComponent,
     NavbarbackComponent,
     MedicalFolderBackComponent,
+
     AddCourseComponent,
     ListCourseComponent,
     UpdateCourseComponent,
@@ -114,14 +154,27 @@ const routes: Routes = [
     SchedularComponent,
    
    
+
+
+    AddclaimComponent,
+    MannageClaimsComponent,
+    EditClaimComponent,
+    MessageComponent,
+    DashboardclaimComponent,
+
+    AppointmentBackComponent
+
+
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
     NgbModule,
+    
     ReactiveFormsModule,
     DataTablesModule,
+
     RouterModule,
     FormsModule,
     MatDialogModule,
@@ -136,15 +189,31 @@ const routes: Routes = [
     NgbModalModule,
     CommonModule,
    SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
+
+
+    ToastModule,
+
+    FullCalendarModule
+
+
+
+
+
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    
   ],
+
   providers: [
     { provide: MatDialogRef, useValue: {} },
      { provide: LOCALE_ID, useValue: 'en-US' },
-    { provide: MOMENT, useValue: MOMENT }
+    { provide: MOMENT, useValue: MOMENT },
+    MessageService
   ],
+
+  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
