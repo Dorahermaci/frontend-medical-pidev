@@ -1,0 +1,31 @@
+<header class="navbar">
+  <app-navbar></app-navbar>
+</header>
+
+<main class="main-content">
+  <section class="course-details-container" *ngIf="showDetails">
+    <h2 class="course-details-header">{{ selectedCourse.courseName }}</h2>
+    <p class="course-details-description">{{ selectedCourse.description }}</p>
+    <div class="course-details-info-container">
+      <div class="course-details-info">
+        <span class="course-details-label">Duration:</span>
+        <span class="course-details-value">{{ selectedCourse.duration }}</span>
+      </div>
+      <div class="course-details-info">
+        <span class="course-details-label">Start Date:</span>
+        <span class="course-details-value">{{ selectedCourse.startDate }}</span>
+      </div>
+      <div class="course-details-info">
+        <span class="course-details-label">End Date:</span>
+        <span class="course-details-value">{{ selectedCourse.endDate }}</span>
+      </div>
+     
+      <button class="btn btn-primary" (click)="joinCourse(selectedCourse.id)">Join Course</button>
+      <button class="btn btn-primary" (click)="Stats(selectedCourse.id)">Stats</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <app-footer></app-footer>
+</footer>

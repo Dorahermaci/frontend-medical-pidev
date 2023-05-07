@@ -1,0 +1,45 @@
+<app-navbarback></app-navbarback>
+<br />
+<br />
+<br />
+<br />
+<h2>List of Courses</h2>
+<div class="row mb-3">
+  <button class="btn btn-primary" (click)="openAddCourseDialog()">Add Course</button>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Course Name</th>
+      <th>Domain</th>
+      <th>Description</th>
+      <th>Duration</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Estimated Time</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courses">
+      <td>{{ course.id }}</td>
+      <td>{{ course.courseName }}</td>
+      <td>{{ course.domain }}</td>
+      <td>{{ course.description }}</td>
+      <td>{{ course.duration }}</td>
+      <td>{{ course.startDate | date }}</td>
+      <td>{{ course.endDate | date }}</td>
+      <td>{{ course.estimatedTime }}</td>
+      <td>
+
+        <button class="btn btn-primary" (click)="editCourse(course)">Edit</button>
+
+        <button class="btn btn-danger" (click)="deleteCourse(course)">Delete</button>
+        
+      
+      </td>
+    </tr>
+  </tbody>
+</table>
+

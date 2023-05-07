@@ -1,0 +1,39 @@
+<app-navbarback></app-navbarback>
+<br />
+<br />
+<br />
+
+<div class="container">
+  <h2>Update Course</h2>
+  <form (ngSubmit)="update(courseForm.value)" #courseForm="ngForm">
+    <div class="form-group">
+      <label for="courseName">Course Name:</label>
+      <input type="text" class="form-control" id="courseName" name="courseName" [(ngModel)]="trainingCourse.courseName" required>
+    </div>
+    <div class="form-group">
+      <label for="domain">Domain:</label>
+      <input type="text" class="form-control" id="domain" name="domain" [(ngModel)]="trainingCourse.domain" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" name="description" [(ngModel)]="trainingCourse.description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="duration">Duration:</label>
+      <input type="text" class="form-control" id="duration" name="duration" [(ngModel)]="trainingCourse.duration" required>
+    </div>
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="trainingCourse.startDate" required>
+    </div>
+    <div class="form-group">
+      <label for="endDate">End Date:</label>
+      <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="trainingCourse.endDate" required>
+    </div>
+    <div class="form-group">
+      <label for="estimatedTime">Estimated Time:</label>
+      <input type="number" class="form-control" id="estimatedTime" name="estimatedTime" [(ngModel)]="trainingCourse.estimatedTime" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

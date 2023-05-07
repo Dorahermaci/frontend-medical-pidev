@@ -1,0 +1,39 @@
+.status {
+  display: flex;
+  align-items: center;
+}
+
+  .status i {
+    margin-right: 5px;
+    font-size: 1.2em;
+  }
+
+.status-text {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.waiting {
+  color: #ff9f43;
+}
+
+.accepted {
+  color: #2ecc71;
+}
+
+.rejected {
+  color: #e74c3c;
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+}
+.status-icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.status-message {
+  font-weight: bold;
+}

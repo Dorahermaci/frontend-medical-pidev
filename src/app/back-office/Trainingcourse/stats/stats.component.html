@@ -1,0 +1,49 @@
+<div class="control-section">
+  <div class="col-md-8">
+    <ejs-accumulationchart id="container" #pie style='display:block; width: 92%' [legendSettings]="legendSettings" [tooltip]="tooltip" [title]="title" (textRender)="onTextRender($event)" (pointRender)="onPointRender($event)" (load)='load($event)' [enableBorderOnMouseMove]='false'>
+      <e-accumulation-series-collection>
+        <e-accumulation-series name='RIO' [dataSource]='data' xName='x' yName='y' [startAngle]="startAngle" [endAngle]="endAngle" [radius]="radius" innerRadius="0%" [explode]="explode" [dataLabel]="dataLabel" [groupTo]='clubvalue' groupMode='Point'>
+        </e-accumulation-series>
+      </e-accumulation-series-collection>
+    </ejs-accumulationchart>
+  </div>
+  <div class="col-md-4 property-section">
+    <div class="property-panel-section">
+      <div class="property-panel-header">Properties</div>
+      <div class="property-panel-content">
+        <table id="property" class="property-panel-table" title="Properties" style="width: 100%">
+          <tr>
+            <td style="width: 50%">
+              <div>
+                GroupModes:
+              </div>
+            </td>
+            <td style="width: 50%;">
+              <div>
+                <select id="mode">
+                  <option value="Point">Point</option>
+                  <option value="Value">Value</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr style="height: 50px">
+            <td style="width: 60%">
+              <div>
+                Group To
+              </div>
+            </td>
+            <td style="width: 40%;">
+              <div data-role="rangeslider">
+                <input type="range" name="clubvalue" value="9" min="0" max="27" (touchmove)='onClubvalue($event)' (change)='onClubvalue($event)' autocomplete="off" id="clubvalue" style="width:90%">
+              </div>
+            </td>
+            <td style="width: 60%;">
+              <p id="clubtext" style="font-weight: normal; padding-top: 15px">9</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
