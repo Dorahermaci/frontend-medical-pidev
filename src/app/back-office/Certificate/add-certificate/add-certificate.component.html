@@ -1,0 +1,23 @@
+
+<div class="container">
+  <h2>Add a Certificate</h2>
+  <form (ngSubmit)="addcertif(certificateForm.value)" #certificateForm="ngForm">
+    <div class="form-group">
+      <label for="studentName">Student Name:</label>
+      <input type="text" class="form-control" id="studentName" name="studentName" [(ngModel)]="certificate.studentName" required>
+    </div>
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="certificate.title" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" name="description" [(ngModel)]="certificate.description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="expirationDate">Expiration Date:</label>
+      <input type="date" class="form-control" id="expirationDate" name="expirationDate" [(ngModel)]="certificate.expirationDate" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

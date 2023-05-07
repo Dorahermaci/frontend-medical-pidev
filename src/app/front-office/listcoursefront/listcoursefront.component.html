@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="courses-grid">
+  <div *ngFor="let course of courses" class="course-card">
+    <div class="card-header">
+      <h4>{{ course.courseName }}</h4>
+      <p class="domain">{{ course.domain }}</p>
+    </div>
+    <div class="card-body">
+      <p>{{ course.description }}</p>
+      <ul>
+        <li><strong>Duration:</strong> {{ course.duration }}</li>
+        <li><strong>Start Date:</strong> {{ course.startDate | date }}</li>
+        <li><strong>End Date:</strong> {{ course.endDate | date }}</li>
+        <li><strong>Estimated Time:</strong> {{ course.estimatedTime }}</li>
+      </ul>
+      <button (click)="Details(course.id)">View Details</button>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,44 @@
+<app-navbarback></app-navbarback>
+
+<br />
+<br />
+<br />
+<br />
+
+<h2>List of Registers</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Completion Status</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Actions</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let register of registers ">
+      <td>{{ register.idRegister }}</td>
+      <td>{{ register.completionStatus }}</td>
+      <td>{{ register.startDate | date }}</td>
+      <td>{{ register.endDate | date }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="editRegister(register)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteRegister(register)">Delete</button>
+        <button class="btn btn-success" (click)="updateRegistrationStatus(register, 'accepted')">Accept</button>
+        <button class="btn btn-danger" (click)="updateRegistrationStatus(register, 'rejected')">Reject</button>
+      </td>
+      <td>
+        <i class="fa fa-clock-o status-icon" *ngIf="register.status === null"></i>
+
+        <i class="fa fa-check status-icon" *ngIf="register.status === 'accepted'"></i>
+        <i class="fa fa-times status-icon" *ngIf="register.status === 'rejected'"></i>
+        <span class="status-message" *ngIf="register.status === null || register.status === 'null'">Wait for answer</span>
+        <span class="status-message" *ngIf="register.status === 'accepted'">Accepted</span>
+        <span class="status-message" *ngIf="register.status === 'rejected'">Rejected</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
