@@ -26,12 +26,17 @@ import { MessageComponent } from './back-office/message/message.component';
 import { DashboardclaimComponent } from './back-office/dashboardclaim/dashboardclaim.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 
 
 import { AppointmentBackComponent } from './back-office/appointment-back/appointment-back.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { ChatComponent } from './back-office/chat/chat.component';
 
 
 
@@ -65,6 +70,7 @@ const routes: Routes = [
       { path: 'edit-claim/:id', component: EditClaimComponent },
       { path: 'Messages', component: MessageComponent },
       { path: 'dashbordClaim', component: DashboardclaimComponent },
+      { path: 'chat', component: ChatComponent },
       
 
       { path: 'appointment-back', component: AppointmentBackComponent }
@@ -97,7 +103,8 @@ const routes: Routes = [
     MessageComponent,
     DashboardclaimComponent,
 
-    AppointmentBackComponent
+    AppointmentBackComponent,
+      ChatComponent
 
   ],
   imports: [
@@ -111,7 +118,10 @@ const routes: Routes = [
 
     ToastModule,
 
-    FullCalendarModule
+    FullCalendarModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
+    
 
 
 

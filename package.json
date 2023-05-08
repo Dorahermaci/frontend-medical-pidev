@@ -31,12 +31,11 @@
     "datatables.net-dt": "^1.13.4",
     "date-fns": "^2.30.0",
     "jquery": "^3.6.4",
-
-    "primeng": "^15.4.2-lts",
-
     "ngx-select-dropdown": "^3.3.0",
     "ngx-select-ex": "^8.0.1",
-
+    "ngx-toastr": "^16.2.0",
+    "primeng": "^15.4.2-lts",
+    "pusher-js": "^8.0.2",
     "rxjs": "~7.8.0",
     "select2": "^4.1.0-rc.0",
     "tslib": "^2.3.0",
