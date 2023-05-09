@@ -1,13 +1,30 @@
 <h1>Medical folders</h1>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+<br>
+<br>
+<br>
+<br>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" #calendar [popover]="popover" placement="right" [outsideClick]="true" #menuPopover="bs-popover">
   Add Appointment
 </button>
 
 <div class="col-sm-12">
   <div class="card">
-    <div class="card-body">
-      <full-calendar
+    <ng-template #popover>
+      <div class="popover-body">
+        <p><strong>Title:</strong> {{ medicalFolder.title }}</p>
+        <p><strong>Hospital Name:</strong> {{ medicalFolder.hospitalName }}</p>
+        <p><strong>Patient Name:</strong> {{ medicalFolder.patient.firstName }} {{ medicalFolder.patient.lastName }}</p>
+        <p><strong>Doctor Name:</strong> {{ medicalFolder.doctor.firstName }} {{ medicalFolder.doctor.lastName }}</p>
+        <p><strong>Creation Date:</strong> {{ medicalFolder.creationDate | date:'medium' }}</p>
+        <p><strong>Files Related:</strong> <li *ngFor="let file of medicalFolder.medicalFiles" class="list-group-item">
+          {{file.fileName}} | <a href="/api/{{file.fileUrl}}" target="_blank">Download</a>
+        </li></p>
+        <button (click)="deleteAppointment(clickedAppointmentId)">Delete</button>
+      </div>
+    </ng-template>
+    <div class="card-body" >
+      
+      <full-calendar 
         [options]="calendarOptions"
       ></full-calendar>
     </div>

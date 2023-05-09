@@ -19,6 +19,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { AppointmentBackComponent } from './back-office/appointment-back/appointment-back.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { AppointmentComponent } from './front-office/appointment/appointment.component';
+import { ProfileComponent } from './front-office/profile/profile.component';
+import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 
 
@@ -29,11 +33,10 @@ const routes: Routes = [
     component: FrontOfficeComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'medical-folder', component: MedicalFolderComponent }
-      
+      { path: 'medical-folder', component: MedicalFolderComponent },
+      { path: 'profile/:id', component: ProfileComponent }
 
-      // Add more child routes as needed
-    ]
+    ],
   },
   { 
     path: 'back', 
@@ -63,7 +66,10 @@ const routes: Routes = [
     SidebarComponent,
     NavbarbackComponent,
     MedicalFolderBackComponent,
-    AppointmentBackComponent
+    AppointmentBackComponent,
+    AppointmentComponent,
+    ProfileComponent,
+    AppointmentComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -73,6 +79,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     DataTablesModule,
     FullCalendarModule,
+    NgbPopoverModule,
+    PopoverModule.forRoot()
 
 
 
