@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Appointment } from '../models/appointment';
 
@@ -22,4 +22,17 @@ export class AppointmentService {
   getAllAppointments(): Observable<Appointment[]> {
     return this.http.get<[]>(`${this.baseUrl}/appointments`);
   }
+
+  getAppointmentsByUserId(id:any): Observable<Appointment[]> {
+    return this.http.get<[]>(`${this.baseUrl}/appointments/patient/${id}`);
+  }
+
+  deleteAppointmentById(id: string): Observable<void> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`
+    });
+
+    return this.http.delete<void>(`http://localhost:8091/appointments/${id}`, {headers});
+  }
+
 }

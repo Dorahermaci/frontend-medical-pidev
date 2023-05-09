@@ -1,0 +1,28 @@
+
+<div class="col-sm-12">
+  <div class="card">
+
+    <ng-template #popover>
+        <div class="popover-body">
+          <p><strong>Title:</strong> {{ medicalFolder.title }}</p>
+          <p><strong>Hospital Name:</strong> {{ medicalFolder.hospitalName }}</p>
+          <p><strong>Patient Name:</strong> {{ medicalFolder.patient.firstName }} {{ medicalFolder.patient.lastName }}</p>
+          <p><strong>Doctor Name:</strong> {{ medicalFolder.doctor.firstName }} {{ medicalFolder.doctor.lastName }}</p>
+          <p><strong>Creation Date:</strong> {{ medicalFolder.creationDate | date:'medium' }}</p>
+          <p><strong>Files Related:</strong> <li *ngFor="let file of medicalFolder.medicalFiles" class="list-group-item">
+            {{file.fileName}} | <a href="/api/{{file.fileUrl}}" target="_blank">Download</a>
+          </li></p>
+        </div>
+      </ng-template>
+    <div class="card-body">
+        <a class="deviceAtag"  hidden>Helo</a>
+
+      <full-calendar #calendar [popover]="popover" placement="right" [outsideClick]="true" #menuPopover="bs-popover"
+      
+        [options]="calendarOptions"
+      ></full-calendar>
+    </div>
+  </div>
+</div>
+
+

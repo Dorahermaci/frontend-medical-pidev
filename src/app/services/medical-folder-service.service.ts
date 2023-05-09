@@ -20,6 +20,11 @@ export class MedicalFolderService {
     return this.http.get<MedicalFolder>(`${this.baseUrl}/medical-folders/${id}`);
   }
 
+
+  getJsonMedicalFolder(id: string): Observable<[]> {
+    return this.http.get<[]>(`${this.baseUrl}/medical-folders/${id}`);
+  }
+
   getAppUsersByRole(role: string): Observable<[]> {
     const url = `${this.baseUrl}/medical-folders/findbyRole?role=${role}`;
     return this.http.get<[]>(url);
