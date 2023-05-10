@@ -1,0 +1,42 @@
+<h2 style="text-align: center; font-size: 2rem; margin-top: 1rem;">Mannage Claims</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Comments</th>
+      <th>Patient ID</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let claim of claims">
+      <td>{{ claim.description }}</td>
+      <td>{{ claim.date | date:'shortDate' }}</td>
+      <td>
+        <span [ngClass]="{
+          'status-pending': claim.status === 'PENDING',
+          'status-in-progress': claim.status === 'IN_PROGRESS',
+          'status-approved': claim.status === 'APPROVED',
+          'status-rejected': claim.status === 'REJECTED',
+          'status-completed': claim.status === 'COMPLETED'
+        }">
+          {{ claim.status }}
+        </span>
+      </td>
+      <td>{{ claim.comments }}</td>
+      <td>{{ claim.appUser.id }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="setEditClaim(claim)">Edit</button>
+        <button class="btn btn-danger" *ngIf="claim.status === 'APPROVED'" (click)="archiveClaim(claim.id)">Archive</button>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-secondary" (click)="goToDashboard()">Go to Dashboard</button>
+
+
+

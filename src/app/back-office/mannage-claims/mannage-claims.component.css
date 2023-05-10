@@ -1,0 +1,56 @@
+
+  .table {
+    background-color: #f2f2f2;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    width: 100%;
+  }
+  .table td, .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  .table th {
+    background-color: #00BFFF;
+    color: white;
+  }
+  .status-pending {
+    color: #ff6600;
+    font-weight: bold;
+  }
+  .status-in-progress {
+    color: #0077cc;
+    font-weight: bold;
+  }
+  .status-approved {
+    color: #00cc66;
+    font-weight: bold;
+  }
+  .status-rejected {
+    color: #ff3300;
+    font-weight: bold;
+  }
+  .status-completed {
+    color: #666666;
+    font-weight: bold;
+  }
+  .btn-primary {
+    background-color: #00BFFF;
+    border-color: #00BFFF;
+    color: white;
+  }
+  .btn-primary:hover {
+    background-color: #0066cc;
+    border-color: #0066cc;
+    color: white;
+  }
+  .btn-danger {
+    background-color: #ff3300;
+    border-color: #ff3300;
+    color: white;
+  }
+  .btn-danger:hover {
+    background-color: #cc2900;
+    border-color: #cc2900;
+    color: white;
+  }

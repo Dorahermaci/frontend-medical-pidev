@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Edit Claim</h2>
+  <form [formGroup]="claimForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select class="form-control" id="status" formControlName="status">
+        <option [ngValue]="'PENDING'">Pending</option>
+        <option [ngValue]="'IN_PROGRESS'">In Progress</option>
+        <option [ngValue]="'APPROVED'">Approved</option>
+        <option [ngValue]="'REJECTED'">Rejected</option>
+        <option [ngValue]="'COMPLETED'">Completed</option>
+      </select>
+      <small class="form-text text-danger" *ngIf="claimForm.get('status')?.errors?.['required']">Status is required.</small>
+    </div>
+    <div class="form-group">
+      <label for="comments">Comments</label>
+      <textarea class="form-control" id="comments" formControlName="comments"></textarea>
+      <small class="form-text text-danger" *ngIf="claimForm.get('comments')?.errors?.['required']">Comments are required.</small>
+    </div>
+    <button type="submit" class="btn btn-primary">{{ currentClaim ? 'Save' : 'Add' }}</button>
+    <button type="button" class="btn btn-secondary ml-2" (click)="cancel()">Cancel</button>
+    
+  </form>
+  
+</div>
+
