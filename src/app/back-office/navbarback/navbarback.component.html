@@ -20,11 +20,12 @@
                       <i class="fa fa-area-chart mr-10"></i>Reports
                     </a>
                 </li>
-                <li class="topnav-item item3">
-                    <a href="#" class="nav-link w-text">
-                      <i class="fa fa-sitemap mr-10"></i>Trading
-                    </a>
-                </li>
+                
+                
+
+              
+                
+
             
                 
                 <li class="hidden-sm hidden-xs searchform">
@@ -40,6 +41,35 @@
                 </li>
             </ul>
         </div>
+
+        <div class="pull-right">
+            <ul class="info-menu right-links list-inline list-unstyled">
+              <li class="topnav-item item3">
+                <a href="#" class="nav-link w-text" (click)="onLogout()">
+                  Logout <i class="fa fa-sign-out"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        <div class="pull-right">
+            <ul class="info-menu right-links list-inline list-unstyled">
+              <li class="topnav-item item4">
+                <a href="#" class="nav-link w-text" [routerLink]="'/home'">
+                  Home <i class="fa fa-home"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+
+
+
+
+
+
+
+
         <div class='pull-right'>
             <ul class="info-menu right-links list-inline list-unstyled">
                 <li class="notify-toggle-wrapper spec">

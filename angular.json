@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend-medical": {
+    "user": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/frontend-medical",
+            "outputPath": "dist/user",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -22,13 +22,10 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets/front-office-assets",
-              "src/assets/back-office-assets"
-
+              "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -63,12 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "frontend-medical:build:production",
-                  "proxyConfig": "proxy.conf.json"
-
+              "browserTarget": "user:build:production"
             },
             "development": {
-              "browserTarget": "frontend-medical:build:development"
+              "browserTarget": "user:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontend-medical:build"
+            "browserTarget": "user:build"
           }
         },
         "test": {
@@ -92,20 +87,12 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
-
+              "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/datatables.net/js/jquery.dataTables.js"
-              
-            ]
+            "scripts": []
           }
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

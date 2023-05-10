@@ -1,0 +1,14 @@
+<div class="popup-container">
+  <div class="popup-content">
+    <h2 class="popup-title">Confirm Registration</h2>
+    <p class="popup-text">Please enter the registration token sent to {{ data.email }}</p>
+    <div class="input-container">
+      <input class="popup-input" [(ngModel)]="token" placeholder="Registration Code" />
+    </div>
+    <p class="error-message">{{ error }}</p>
+    <div class="popup-actions">
+      <button class="confirm-button" (click)="onSubmit()">Confirm</button>
+      <button class="cancel-button" (click)="closePopup()">Cancel</button>
+    </div>
+  </div>
+</div>
