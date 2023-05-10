@@ -6,11 +6,11 @@
         <ul class='wraplist'>
             <li class='menusection'>Main</li>
             <li class="open">
-                <a href="index-hos-dashboard.html">
+                <a [routerLink]="'/back/userlist'">
                     <i class="img">
                         <img src="../../assets/back-office-assets//hos-dash/icons/1.png" alt="" class="width-20">
                     </i>
-                    <span class="title">Dashboard</span>
+                    <span class="title">Admin Dashboard</span>
                 </a>
             </li>
             <li class="">
@@ -21,7 +21,14 @@
                     <span class="title">Patient Dashboard</span>
                 </a>
             </li>
-    
+            <li class="">
+                <a href="hos-doctor-dash.html">
+                    <i class="img">
+                        <img src="../../assets/back-office-assets//hos-dash/icons/4.png" alt="" class="width-20">
+                    </i>
+                    <span class="title">Doctor Dashboard</span>
+                </a>
+            </li>
             <li class="">
                 <a href="javascript:;">
                     <i class="img">
@@ -69,11 +76,12 @@
                 </ul>
             </li>
             <li class="">
-                <a href="/back/appointment-back">
+                <a href="javascript:;">
                     <i class="img">
                         <img src="../../assets/back-office-assets//hos-dash/icons/6.png" alt="" class="width-20">
                     </i>
                     <span class="title">Appointments</span>
+                    <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
                     <li>
@@ -83,14 +91,6 @@
                         <a class="" href="hos-book-appointment.html">Book Appointment</a>
                     </li>
                 </ul>
-            </li>
-            <li class="">
-                <a href="/back/medical-folder-back">
-                    <i class="img">
-                        <img src="../../assets/back-office-assets//hos-dash/icons/4.png" alt="" class="width-20">
-                    </i>
-                    <span class="title">Medical Folders</span>
-                </a>
             </li>
             <li class="">
                 <a href="javascript:;">

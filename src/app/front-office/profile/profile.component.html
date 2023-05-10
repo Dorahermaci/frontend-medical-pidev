@@ -1,0 +1,80 @@
+
+<body>
+   <!-- profile.component.html -->
+<!-- ======= Top Bar ======= -->
+<div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-between">
+    </div>
+  </div>
+  
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <div class="pic">
+        <img src="assets/img/hopital.png" class="img-fluid" alt="">
+      </div>
+  
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <app-account-icon></app-account-icon>
+          </li>
+        </ul>
+  
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+  
+    </div>
+  </header><!-- End Header -->
+
+  <div class="main-content">
+    <div class="sidebar">
+      <ul>
+        <li (click)="selectTab('profile')" [class.active]="selectedTab === 'profile'">Change Profile</li>
+        <li (click)="selectTab('password')" [class.active]="selectedTab === 'password'">Change Password</li>
+      </ul>
+    </div>
+    <div class="forms">
+      <div *ngIf="selectedTab === 'profile'">
+        <h2>Change Profile</h2>
+        <form (submit)="updateUser()">
+          <!-- Profile form inputs -->
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" [(ngModel)]="user.firstName">
+            
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName">
+            
+          <label for="phoneNumber">Phone Number:</label>
+          <input type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="user.phonenumber">
+            
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+     
+     
+      <div *ngIf="selectedTab === 'password'">
+        <h2>Change Password</h2>
+        <form (submit)="changePassword()">
+          <!-- Password form inputs -->
+          <label for="password">Old Password:</label>
+                <div class="password-input">
+                    <input type="password" id="oldpassword" name="oldpassword" [(ngModel)]="oldPassword" [type]="showPassword ? 'text' : 'password'">
+                        <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'" (click)="togglePasswordVisibility()"></i>
+                </div>
+ 
+                <label for="password">New Password:</label>
+                <div class="password-input">
+                    <input type="password" id="newpassword" name="newpassword" [(ngModel)]="newPassword" [type]="showPassword ? 'text' : 'password'">
+                </div>
+            
+          <button type="submit">Change Password</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="script.js"></script>
+</body>
+
