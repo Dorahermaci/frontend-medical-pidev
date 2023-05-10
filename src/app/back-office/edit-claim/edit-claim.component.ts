@@ -4,6 +4,8 @@ import { ClaimService } from 'src/app/services/claim.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -23,7 +25,8 @@ export class EditClaimComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private toastr: ToastrService
   ) {
     this.claimForm = this.formBuilder.group({
       
@@ -59,8 +62,16 @@ export class EditClaimComponent implements OnInit {
       const index = this.claims.findIndex(claim => claim.id === data.id);
       this.claims[index] = data;
       this.currentClaim = null;
-      this.showToast();
-      this.router.navigate(['/back/Claims']);
+      this.toastr.success('Claim updated successfully.', 'Success', {
+        positionClass: 'toast-center'
+      });
+      
+        this.router.navigate(['/back/Claims'], {
+          queryParams: { status: 'success' },
+        });
+      },
+      (error) => {
+        console.log(error);
 
     });
   }
@@ -69,7 +80,17 @@ export class EditClaimComponent implements OnInit {
     this.router.navigate(['/back/Claims']);
   }
   showToast() {
-    this.messageService.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content' });
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Claim updated successfully!',
+      detail: '',
+      life: 3000,
+      closable: true,
+      
+      styleClass: 'my-toast'
+    });
   }
+  
+  
 
 }

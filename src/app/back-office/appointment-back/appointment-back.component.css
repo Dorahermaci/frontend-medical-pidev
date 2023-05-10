@@ -1,0 +1,68 @@
+/* Set the font family and size for the calendar */
+.fc {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+  }
+  
+  /* Customize the header with a gradient background and white text */
+  .fc-header-toolbar {
+    background: linear-gradient(to bottom, #222, #444);
+    color: #fff;
+  }
+  
+  /* Style the buttons in the header */
+  .fc-header-toolbar button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    margin: 0 5px;
+  }
+  
+  /* Style the active button in the header */
+  .fc-header-toolbar button.fc-state-active {
+    background: #fff;
+    color: #222;
+  }
+  
+  /* Customize the day grid with a white background and black borders */
+  .fc-daygrid {
+    background: #fff;
+    border: 1px solid #222;
+  }
+  
+  /* Style the day cells with a light gray background on hover */
+  .fc-daygrid-day:hover {
+    background: #f1f1f1;
+  }
+  
+  /* Style the current day cell with a gradient background and white text */
+  .fc-day-today {
+    background: linear-gradient(to bottom, #7cb4c3, #3e92a3);
+    color: #fff;
+  }
+  
+  /* Style the event dots with a custom color */
+  .fc-event-dot {
+    background-color: #3e92a3;
+    border-color: #3e92a3;
+  }
+  
+  /* Style the event popover with a white background and black text */
+  .fc-popover {
+    background-color: #fff;
+    color: #222;
+    border-color: #222;
+  }
+  
+  /* Style the event title with a bold font and custom color */
+  .fc-title {
+    font-weight: bold;
+    color: #3e92a3;
+  }
+  
+  /* Style the event time with a custom color */
+  .fc-time {
+    color: #666;
+  }
+  
