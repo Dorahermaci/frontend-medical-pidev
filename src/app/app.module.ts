@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from 'src/app/app-routing.module';
+
 import { AppComponent } from './app.component';
-import { HttpClientModule ,HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { NgxCaptchaModule } from 'ngx-captcha';
+import { FormsModule } from '@angular/forms'; // <-- import FormsModule
+import { RouterModule, Routes } from '@angular/router';
+import { FrontOfficeComponent } from './front-office/front-office.component';
+import { BackOfficeComponent } from './back-office/back-office.component';
+import { HomeComponent } from './front-office/home/home.component';
+import { NavbarComponent } from './front-office/navbar/navbar.component';
+import { FooterComponent } from './front-office/footer/footer.component';
+import { MedicalFolderComponent } from './front-office/medical-folder/medical-folder.component';
+import { DashboardComponent } from './back-office/dashboard/dashboard.component';
+import { SidebarComponent } from './back-office/sidebar/sidebar.component';
+import { NavbarbackComponent } from './back-office/navbarback/navbarback.component';
+import { MedicalFolderBackComponent } from './back-office/medical-folder-back/medical-folder-back.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-<<<<<<< HEAD
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { CommonModule } from '@angular/common';
-
-
-=======
 import { DataTablesModule } from 'angular-datatables';
 
 import { AddclaimComponent } from './front-office/addclaim/addclaim.component';
@@ -22,22 +26,21 @@ import { MessageComponent } from './back-office/message/message.component';
 import { DashboardclaimComponent } from './back-office/dashboardclaim/dashboardclaim.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
->>>>>>> parent of 6a2032a (fix errors of merge)
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
 
-<<<<<<< HEAD
-=======
+
+
 import { AppointmentBackComponent } from './back-office/appointment-back/appointment-back.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
->>>>>>> parent of 6a2032a (fix errors of merge)
+import { ChatComponent } from './back-office/chat/chat.component';
 
 
 
 
-<<<<<<< HEAD
-=======
 
 const routes: Routes = [
   { 
@@ -67,6 +70,7 @@ const routes: Routes = [
       { path: 'edit-claim/:id', component: EditClaimComponent },
       { path: 'Messages', component: MessageComponent },
       { path: 'dashbordClaim', component: DashboardclaimComponent },
+      { path: 'chat', component: ChatComponent },
       
 
       { path: 'appointment-back', component: AppointmentBackComponent }
@@ -78,14 +82,10 @@ const routes: Routes = [
   },
 ];
 
->>>>>>> parent of 6a2032a (fix errors of merge)
 @NgModule({
   declarations: [
-    AppComponent,
-<<<<<<< HEAD
-    NotFoundComponent,
     
-=======
+    AppComponent,
     FrontOfficeComponent,
     BackOfficeComponent,
     HomeComponent,
@@ -103,16 +103,14 @@ const routes: Routes = [
     MessageComponent,
     DashboardclaimComponent,
 
-    AppointmentBackComponent
+    AppointmentBackComponent,
+      ChatComponent
 
->>>>>>> parent of 6a2032a (fix errors of merge)
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-<<<<<<< HEAD
-=======
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
@@ -120,27 +118,20 @@ const routes: Routes = [
 
     ToastModule,
 
-    FullCalendarModule
+    FullCalendarModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
+    
 
 
 
 
   ],
   exports: [
->>>>>>> parent of 6a2032a (fix errors of merge)
     RouterModule,
-    NgxCaptchaModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    CommonModule
-    
-    
-    
-    
     
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
