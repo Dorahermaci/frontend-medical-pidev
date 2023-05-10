@@ -23,7 +23,16 @@
     "@angular/router": "^15.1.0",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.4",
+<<<<<<< HEAD
     "ngx-captcha": "^13.0.0",
+=======
+
+    "primeng": "^15.4.2-lts",
+
+    "ngx-select-dropdown": "^3.3.0",
+    "ngx-select-ex": "^8.0.1",
+
+>>>>>>> parent of 6a2032a (fix errors of merge)
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.7.3",
     "tslib": "^2.5.0",
